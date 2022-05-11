@@ -1,0 +1,17 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="inbuild">
+    <output-path>$PROJECT_DIR$/out/artifacts/inbuild</output-path>
+    <root id="archive" name="inbuild.war">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="07_InbuildCP" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="commons-dbcp2-2.9.0" />
+        </element>
+      </element>
+      <element id="javaee-facet-resources" facet="07_InbuildCP/web/Web" />
+      <element id="javaee-facet-resources" facet="07_InbuildCP/web/Web" />
+    </root>
+  </artifact>
+</component>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AJAX with jQuery</title>
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+</head>
+<body>
+<h1>Hello AJAX...!</h1>
+<p id="para"></p>
+<button id="btn1">Send Request</button><br><hr>
+
+<div class="row mt-3">
+    <div class="col-2">
+        <button class="btn btn-primary" id="btn2">Send Request To XML</button>
+    </div>
+    <div class="col">
+        <table class="table table-bordered table-hover">
+            <thead class="bg-primary text-white">
+            <tr>
+                <th>Customer ID</th>
+                <th>Name</th>
+                <th>Address</th>
+                <th>Salary</th>
+            </tr>
+            </thead>
+            <tbody id="tblCustomer">
+            <tr>
+                <td> </td>
+                <td> </td>
+                <td> </td>
+                <td> </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<section>
+<!--File Type : JSON-->
+<div class="row mt-3">
+    <div class="col-2">
+        <button class="btn btn-danger" id="btn3">Send Request To JSON</button>
+    </div>
+    <div class="col">
+        <table class="table table-bordered table-hover">
+            <thead class="bg-danger text-white">
+            <tr>
+                <th>Customer ID</th>
+                <th>Name</th>
+                <th>Address</th>
+                <th>Salary</th>
+            </tr>
+            </thead>
+            <tbody id="tblCustomerJson">
+            <!--<tr>
+                <td> </td>
+                <td> </td>
+                <td> </td>
+                <td> </td>
+            </tr>-->
+            </tbody>
+        </table>
+    </div>
+</div>
+</section>
+<script src="assets/jquery-3.6.0.min.js"></script>
+<script>
+    $("#btn3").click(function () {
+        $.ajax({
+            url:"http://localhost:8080/gdse/customer",
+            success:function (resp) {
+
+            },
+        });
+    });
+
+</script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="customer2">
+    <output-path>$PROJECT_DIR$/out/artifacts/customer2</output-path>
+    <root id="archive" name="customer2.war">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="05_AppTwo" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="mysql-connector-java-8.0.25" />
+        </element>
+      </element>
+      <element id="javaee-facet-resources" facet="05_AppTwo/web/Web" />
+      <element id="javaee-facet-resources" facet="05_AppTwo/web/Web" />
+    </root>
+  </artifact>
+</component>

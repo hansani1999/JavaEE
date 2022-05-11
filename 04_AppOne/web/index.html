@@ -1,0 +1,146 @@
+<!--/**
+* @author : Sanu Vithanage
+* @since : 0.1.0
+**/-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AJAX with jQuery</title>
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<section class="container-fluid p-4 bg-primary text-white">
+    <h1 class="fw-bold">AJAX With jQuery</h1>
+</section>
+<section class="container mt-3">
+    <form action="customer" method="post">
+        <div class="col-12 col-md-5">
+            <div class="mb-3">
+                <label class="form-label" for="txtCusID">Customer ID</label>
+                <input class="form-control" id="txtCusID" placeholder="Customer ID" type="text" name="customerID">
+                <!--<p><small class="text-danger pl-1" id="lblcusid"></small></p>-->
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="txtCusName">Customer Name</label>
+                <input class="form-control" id="txtCusName" placeholder="Customer Name" type="text" name="customerName">
+                <!--<p><small class="text-danger pl-1" id="lblcusname"></small></p>-->
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="txtCusAddress">Customer Address</label>
+                <input class="form-control" id="txtCusAddress" placeholder="Customer Address" type="text" name="custAddress">
+                <p><small class="text-danger pl-1" id="lblcusaddress"></small></p>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="txtCusSalary">Customer Salary</label>
+                <input class="form-control" id="txtCusSalary" placeholder="Customer Salary" type="text" name="custSalary">
+                <!--<p><small class="text-danger pl-1" id="lblcussalary"></small></p>-->
+            </div>
+            <button class="btn btn-success" id="btnCustomer" type="submit">Save or Update</button>
+        </div>
+    </form>
+
+
+    <!--File Type : JSON-->
+    <div class="row mt-3">
+        <div class="col-2">
+            <button class="btn btn-danger" id="btn3">Send Request To JSON</button>
+        </div>
+        <div class="col">
+            <table class="table table-bordered table-hover">
+                <thead class="bg-danger text-white">
+                <tr>
+                    <th>Customer ID</th>
+                    <th>Name</th>
+                    <th>Address</th>
+                    <th>Salary</th>
+                </tr>
+                </thead>
+                <tbody id="tblCustomerJson">
+                <!--<tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>-->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!--<div class="row mt-3">
+        <div class="col-2">
+            <button class="btn btn-success" id="btn4">Send Request To JSON</button>
+        </div>
+        <div class="col">
+            <table class="table table-bordered table-hover">
+                <thead class="bg-success text-white">
+                <tr>
+                    <th>Item Code</th>
+                    <th>Description</th>
+                    <th>packSize</th>
+                    <th>Qty</th>
+                    <th>Unit Price</th>
+                </tr>
+                </thead>
+                <tbody id="tblItemJson">
+                &lt;!&ndash;<tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>&ndash;&gt;
+                </tbody>
+            </table>
+        </div>
+    </div>-->
+</section>
+
+
+<script src="assets/jQuery/jquery-3.6.0.min.js"></script>
+<script>
+    $("#btn3").click(function () {
+        //$("#tblCustomerJson").empty();
+
+        $.ajax({
+            url: "customer",
+            method: "GET",
+            dataType: "json",
+            success: function (resp) {
+                //console.log(resp);
+                for (var customer of resp){
+                    let id = customer.id;
+                    let name = customer.name;
+                    let address = customer.address;
+                    let pc = customer.pc;
+
+                    let row = `<tr><td>${id}</td>,<td>${name}</td>,<td>${address}</td>,<td>${pc}</td></tr>`;
+
+                    $("#tblCustomerJson").append(row);
+                }
+            }
+        });
+    });
+
+    /*$("#btn4").click(function () {
+        $.ajax({
+            url: "item",
+            method: "GET",
+            //dataType: "json",
+            success: function (resp) {
+                for (let item of resp){
+                    let code = item.code;
+                    let desc = item.description;
+                    let packSize = item.packSize;
+                    let qty = item.qty;
+                    let price = item.price;
+
+                    let row = `<tr><td>${code}</td>,<td>${desc}</td>,<td>${packSize}</td>,<td>${qty}</td>,<td>${price}</td></tr>`;
+                    $("#tblItemJson").append(row);
+                }
+            }
+        });
+    });*/
+</script>
+</body>
+</html>
